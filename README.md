@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## About
 This is my template for frontend projects.
 
@@ -9,7 +7,7 @@ This is my template for frontend projects.
 * Premade responsive navbar.
 * Preconfigured server side rendered styled-components.
 
-
+![Preview](./gh-screenshot.png)
 ## Getting Started
 
 First, run the development server:
