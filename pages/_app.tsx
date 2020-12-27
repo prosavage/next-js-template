@@ -20,13 +20,8 @@ function MyApp({ Component, pageProps }) {
         <PageContainer>
           <Navbar />
           <Component {...pageProps} />
-          <ThemeToggleContainer
-            onClick={() => {
-              setDarkTheme(!darkTheme)
-            }}
-          >
-            {darkTheme ? <Moon /> : <Sun />}
-          </ThemeToggleContainer>
+          
+            
         </PageContainer>
       </ThemeProvider>
     </Wrapper>
@@ -53,19 +48,6 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`
-
-const ThemeToggleContainer = styled.div`
-  /* Positioning. */
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  
-  /* Styling */
-  padding: 4px;
-
-  /* Usability */
-  cursor: pointer;
 `
 
 

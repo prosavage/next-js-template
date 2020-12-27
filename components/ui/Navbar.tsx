@@ -6,6 +6,7 @@ import PropsTheme from "../../styles/theme/PropsTheme";
 import ActiveLink from "./../ActiveLink"
 import { ThemeContext } from "styled-components"
 import { useContext } from "react";
+import { Moon, Sun } from "react-feather";
 const links = [
     {
         link: "/",
@@ -61,6 +62,8 @@ export default function Navbar(props) {
                         <ActiveLink href={entry.link}>
                             <LinkText>{entry.text}</LinkText>
                         </ActiveLink>
+                    </LinkWrapper>).concat(<LinkWrapper>
+                        {themeContext === DarkTheme ? <Moon /> : <Sun />}
                     </LinkWrapper>)
                     }
                 </LinksWrapper>}
@@ -94,9 +97,15 @@ const Wrapper = styled.div`
 const Content = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0 0.5em;
     justify-content: space-between;
+    
+
+    @media(min-width: 700px) {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 `
 
 const LogoSection = styled.div`
@@ -104,9 +113,11 @@ const LogoSection = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
     @media(min-width: 700px) {
         justify-content: center;
+        width: auto;
     }
 `
 
