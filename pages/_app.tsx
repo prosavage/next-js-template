@@ -17,15 +17,15 @@ function MyApp({ Component, pageProps }) {
     <Wrapper>
       <ThemeProvider theme={getTheme()}>
         <GlobalStyle />
-        <Navbar />
         <PageContainer>
+          <Navbar />
           <Component {...pageProps} />
           <ThemeToggleContainer
             onClick={() => {
               setDarkTheme(!darkTheme)
             }}
           >
-            {darkTheme ? <Moon/> : <Sun/>}
+            {darkTheme ? <Moon /> : <Sun />}
           </ThemeToggleContainer>
         </PageContainer>
       </ThemeProvider>
@@ -42,11 +42,17 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1280px;
 `;
 
 const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `
 
 const ThemeToggleContainer = styled.div`

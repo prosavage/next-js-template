@@ -51,18 +51,20 @@ export default function Navbar(props) {
 
     return (
         <Wrapper>
-            <LogoSection>
-                <Logo src={`/img/navbar/${getLogoPath()}`} />
-                {!isDesktop() && <HamburgerButton onClick={() => setToggled(!toggled)} />}
-            </LogoSection>
-            {(toggled || isDesktop()) && <LinksWrapper>
-                {links.map(entry => <LinkWrapper>
-                    <ActiveLink href={entry.link}>
-                        <LinkText>{entry.text}</LinkText>
-                    </ActiveLink>
-                </LinkWrapper>)
-                }
-            </LinksWrapper>}
+            <Content>
+                <LogoSection>
+                    <Logo src={`/img/navbar/${getLogoPath()}`} />
+                    {!isDesktop() && <HamburgerButton onClick={() => setToggled(!toggled)} />}
+                </LogoSection>
+                {(toggled || isDesktop()) && <LinksWrapper>
+                    {links.map(entry => <LinkWrapper>
+                        <ActiveLink href={entry.link}>
+                            <LinkText>{entry.text}</LinkText>
+                        </ActiveLink>
+                    </LinkWrapper>)
+                    }
+                </LinksWrapper>}
+            </Content>
         </Wrapper>
     )
 }
@@ -70,10 +72,10 @@ export default function Navbar(props) {
 const Wrapper = styled.div`
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    padding: 0 0.5em;
+    flex-direction: row;
     /* This will basically push everything to left and right. */
     justify-content: center;
+    align-items: center;
 
     /* Want a line instead of shadow in dark mode. */
     background: ${(props: PropsTheme) => props.theme.background};
@@ -86,10 +88,15 @@ const Wrapper = styled.div`
         box-shadow: 0px 18px 35px ${props => props.theme.boxShadowColor};
     `}
 
-    @media(min-width: 700px) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+    
+`
+
+const Content = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.5em;
+    justify-content: space-between;
 `
 
 const LogoSection = styled.div`
@@ -114,10 +121,6 @@ const Logo = styled.img`
     width: auto;
     height: 3em;
     padding: 10px;
-
-    @media(min-width: 1000px) {
-        padding-left: 105px;
-    }
 `
 const LinkWrapper = styled.div`
     display: flex;
@@ -146,7 +149,7 @@ const LinkText = styled.a`
     cursor: pointer;
 
     @media(min-width: 700px) {
-        padding: 0 15px;
+        padding-left: 15px;
     }
 `
 
