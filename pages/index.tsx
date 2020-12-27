@@ -9,8 +9,7 @@ export default function Home() {
         <li>TypeScript based.</li>
         <li>Preconfigured styled-components</li>
         <li>Dark & Lightmode using theme providers.</li>
-        <li>Premade resposive navbar</li>
-
+        <li>Premade responsive navbar</li>
       </ul>
     </Wrapper>
   )
