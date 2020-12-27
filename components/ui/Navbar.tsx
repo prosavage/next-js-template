@@ -4,8 +4,6 @@ import DarkTheme from "../../styles/theme/DarkTheme";
 import LightTheme from "../../styles/theme/LightTheme";
 import PropsTheme from "../../styles/theme/PropsTheme";
 import ActiveLink from "./../ActiveLink"
-import { ThemeContext } from "styled-components"
-import { useContext } from "react";
 import { Moon, Sun } from "react-feather";
 import { useRecoilState } from "recoil";
 import { themeState } from "../../styles/atoms/theme";
@@ -92,8 +90,6 @@ const Wrapper = styled.div`
     ${(props: PropsTheme) => props.theme === LightTheme && css`
         box-shadow: 0px 18px 35px ${props => props.theme.boxShadowColor};
     `}
-
-    
 `
 
 const Content = styled.div`
@@ -139,7 +135,7 @@ const LinkWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 0;
+    padding: 5px 5px;
 `
 
 const LinksWrapper = styled.div`
@@ -162,7 +158,7 @@ const LinkText = styled.a`
     cursor: pointer;
 
     @media(min-width: 700px) {
-        padding-left: 15px;
+        padding: 0 15px;
     }
 `
 
