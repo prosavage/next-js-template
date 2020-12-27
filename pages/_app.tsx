@@ -5,29 +5,39 @@ import Navbar from "./../components/ui/Navbar";
 import GlobalStyle from "../styles/GlobalStyle";
 import { Sun, Moon } from "react-feather";
 import DarkTheme from "../styles/theme/DarkTheme";
+import { RecoilRoot } from "recoil";
+import { useRecoilValue } from "recoil";
+import { themeState } from "../styles/atoms/theme";
+
 function MyApp({ Component, pageProps }) {
 
-  const [darkTheme, setDarkTheme] = useState<Boolean>(false);
 
-  const getTheme = () => {
-    return darkTheme ? DarkTheme : LightTheme
-  }
 
   return (
     <Wrapper>
-      <ThemeProvider theme={getTheme()}>
-        <GlobalStyle />
-        <PageContainer>
-          <Navbar />
-          <Component {...pageProps} />
-          
-            
-        </PageContainer>
-      </ThemeProvider>
+     <RecoilRoot>
+        <WrappedApp Component={Component} pageProps={pageProps}/>
+      </RecoilRoot>
     </Wrapper>
   );
 }
 
+
+function WrappedApp({ Component, pageProps }) {
+
+  const theme = useRecoilValue(themeState)
+
+
+  return (
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <PageContainer>
+            <Navbar />
+            <Component {...pageProps} />
+          </PageContainer>
+        </ThemeProvider>
+  );
+}
 
 
 const PageContainer = styled.div`

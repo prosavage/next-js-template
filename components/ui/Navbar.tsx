@@ -7,6 +7,8 @@ import ActiveLink from "./../ActiveLink"
 import { ThemeContext } from "styled-components"
 import { useContext } from "react";
 import { Moon, Sun } from "react-feather";
+import { useRecoilState } from "recoil";
+import { themeState } from "../../styles/atoms/theme";
 const links = [
     {
         link: "/",
@@ -24,10 +26,10 @@ const links = [
 
 export default function Navbar(props) {
 
-    const themeContext = useContext(ThemeContext);
+    const [theme, setTheme] = useRecoilState(themeState);
 
     const getLogoPath = () => {
-        return themeContext === DarkTheme ? "logo-dark.svg" : "logo-light.svg"
+        return theme === DarkTheme ? "logo-dark.svg" : "logo-light.svg"
     }
 
     const [toggled, setToggled] = useState(false);
@@ -62,8 +64,8 @@ export default function Navbar(props) {
                         <ActiveLink href={entry.link}>
                             <LinkText>{entry.text}</LinkText>
                         </ActiveLink>
-                    </LinkWrapper>).concat(<LinkWrapper>
-                        {themeContext === DarkTheme ? <Moon /> : <Sun />}
+                    </LinkWrapper>).concat(<LinkWrapper onClick={() => setTheme(theme === DarkTheme ? LightTheme : DarkTheme)}>
+                        {theme === DarkTheme ? <Moon /> : <Sun />}
                     </LinkWrapper>)
                     }
                 </LinksWrapper>}
