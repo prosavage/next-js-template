@@ -8,6 +8,7 @@ import DarkTheme from "../styles/theme/DarkTheme";
 import { RecoilRoot } from "recoil";
 import { useRecoilValue } from "recoil";
 import { themeState } from "../styles/atoms/theme";
+import Footer from "../components/ui/Footer";
 
 function MyApp({ Component, pageProps }) {
 
@@ -34,6 +35,7 @@ function WrappedApp({ Component, pageProps }) {
           <PageContainer>
             <Navbar />
             <Component {...pageProps} />
+            <Footer/>
           </PageContainer>
         </ThemeProvider>
   );
