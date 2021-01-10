@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Button from '../components/ui/Button'
 import styled from "styled-components";
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <li>Dark & Lightmode using theme providers.</li>
         <li>Premade responsive navbar</li>
       </ul>
+      <Button>Button</Button>
     </Wrapper>
   )
 }
