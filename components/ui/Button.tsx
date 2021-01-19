@@ -1,13 +1,6 @@
 import styled, { css } from "styled-components";
 import PropsTheme from "../../styles/theme/PropsTheme";
 
-const Button = (props) => {
-  return <StyledButton secondary={props.secondary}>{props.children}</StyledButton>
-}
-
-export default Button;
-
-
 export const StyledButton = styled.button`
   flex: 1 1 auto;
   color: ${(props: PropsTheme) => props.theme.buttonColor};
@@ -24,3 +17,5 @@ export const StyledButton = styled.button`
     
   }
 `
+
+export default StyledButton;
