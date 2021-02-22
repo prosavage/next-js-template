@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "util/parser/BreakTag.jsx", "util/parser/LightTag.jsx", "util/parser/LeftTag.jsx", "util/parser/DarkTag.jsx", "util/parser/BreakTag.jsx"  ],
   "exclude": [
     "node_modules"
   ]

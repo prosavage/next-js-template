@@ -5,11 +5,8 @@ import ITheme from '../styles/theme/ITheme';
 
 function ActiveLink({ children, href }) {
 
-    const themeContext: ITheme = useContext(ThemeContext);
-
     const router = useRouter()
     const style = {
-        marginRight: 10,
         fontWeight: router.pathname === 
         href ? 700 : 400
     }

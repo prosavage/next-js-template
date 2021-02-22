@@ -1,5 +1,5 @@
-import Document from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -18,8 +18,10 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <>
-            <link rel={"stylesheet"} href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap'/>
-
+            <link
+              rel={"stylesheet"}
+              href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap"
+            />
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
@@ -28,5 +30,23 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <script
+            async
+            defer
+            src="https://scripts.simpleanalyticscdn.com/latest.js"
+          ></script>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

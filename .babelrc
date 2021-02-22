@@ -1,4 +1,3 @@
-
 {
     "presets": [
         "next/babel"
@@ -9,7 +8,23 @@
             {
                 "ssr": true,
                 "displayName": true,
-                "preprocess": false
+                "preprocess": false,
+                "minify": false,
+                "transpileTemplateLiterals": false
+            }
+        ],
+        [
+            "prismjs",
+            {
+                "languages": [
+                    "bbcode"
+                ],
+                "plugins": [
+                    "line-numbers",
+                    "show-language"
+                ],
+                "theme": "funky",
+                "css": true
             }
         ]
     ]
