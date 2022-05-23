@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+yarn.lock
 
 # testing
 /coverage
@@ -28,3 +29,5 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+yarn.lock
+next-env.d.ts
